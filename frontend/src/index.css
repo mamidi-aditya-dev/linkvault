@@ -1,0 +1,107 @@
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --surface2: #1c1c28;
+  --border: #2a2a3d;
+  --accent: #7c6af7;
+  --accent2: #f76a8c;
+  --accent3: #6af7c8;
+  --text: #e8e8f0;
+  --text-muted: #6b6b8a;
+  --text-dim: #3a3a55;
+  --red: #f76a6a;
+  --yellow: #f7d06a;
+  --radius: 14px;
+  --font-head: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-head);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px; left: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(124,106,247,0.1) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -150px; right: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(247,106,140,0.08) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-head); cursor: pointer; }
+input, select, textarea { font-family: var(--font-mono); }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.btn-primary {
+  background: var(--accent); color: #fff; border: none;
+  font-family: var(--font-head); font-weight: 700; font-size: 0.85rem;
+  padding: 9px 20px; border-radius: 8px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn-primary:hover { background: #6a58e8; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,106,247,0.4); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text-muted); font-family: var(--font-head); font-weight: 600;
+  font-size: 0.85rem; padding: 9px 20px; border-radius: 8px; cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
+
+.icon-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; transition: all 0.15s;
+}
+.icon-btn:hover { background: var(--border); color: var(--text); }
+.icon-btn.danger:hover { background: rgba(247,106,106,0.15); color: var(--red); border-color: var(--red); }
+.icon-btn.success:hover { background: rgba(106,247,200,0.15); color: var(--accent3); border-color: var(--accent3); }
+
+.form-group { margin-bottom: 18px; }
+.form-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 7px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); font-family: var(--font-mono); font-size: 0.85rem;
+  padding: 10px 14px; outline: none; transition: border-color 0.15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-select option { background: var(--surface2); }
+.form-textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.form-error { font-size: 0.78rem; color: var(--red); margin-top: 6px; font-family: var(--font-mono); }
+
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-muted);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 14px; opacity: 0.5; }
+.empty-state h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dim); }
+.empty-state p { font-size: 0.83rem; font-family: var(--font-mono); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cardIn { from { opacity: 0; scale: 0.97; } to { opacity: 1; scale: 1; } }
